@@ -76,7 +76,8 @@ import event.dto.Admin;
 	    public List<Admin> findByQuery() {
 	    	String ql="select a from Admin a";
 	    	Query q=em.createQuery(ql);
-	    	List<Admin> admin=q.getResultList();
+	    	@SuppressWarnings("unchecked")
+			List<Admin> admin=q.getResultList();
 	    	
 	    	if (admin !=null) {
 				return admin;

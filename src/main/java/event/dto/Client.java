@@ -17,6 +17,13 @@ private int clientId;
 private String clientName;
 private long clientContact;
 private String clientMail;
+private String clientPassword;
+public String getClientPassword() {
+	return clientPassword;
+}
+public void setClientPassword(String clientPassword) {
+	this.clientPassword = clientPassword;
+}
 @OneToMany(cascade = CascadeType.ALL)
 List<ClientEvent> events;
 public int getClientId() {

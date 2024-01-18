@@ -5,8 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import event.dto.ClientEvent;
-import event.dto.ClientService;
-import event.dto.EvenType;
+
 
 public class ClientEventDAO {
 

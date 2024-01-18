@@ -1,9 +1,13 @@
 package event.dao;
 
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 import event.dto.Client;
 
 
@@ -64,5 +68,18 @@ public class ClientDAO {
             return null;
         }
     }
+    public Client findByQuery(String email) {
+    	
+    	Query q=em.createQuery("select c from Client c where c.clientMail=?1");
+    	q.setParameter(1,email);
+		Client client=(Client)q.getSingleResult();
+    	
+			if (client !=null) {
+				return client;
+			}
+    	return  null;
+    	
+    }
+
 }
 

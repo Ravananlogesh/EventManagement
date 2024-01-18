@@ -1,9 +1,11 @@
 package event.dao;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
 
 import event.dto.Service;
 
@@ -25,7 +27,7 @@ public class ServiceDAO {
 	        }
 	    }
 
-	    public Service findAdmin(int serviceId) {
+	    public Service findService(int serviceId) {
 	    	Service service = em.find(Service.class, serviceId);
 	        if (service != null) {
 	            return service;
@@ -46,8 +48,7 @@ public class ServiceDAO {
 	        }
 	    }
 
-	    public Service updateAdmin(Service service, int serviceId) {
-	    	service = em.find(Service.class, serviceId);
+	    public Service updateService(Service service) {
 	        if (service != null) {
 	            et.begin();
 	            Service updatedService = em.merge(service);
@@ -70,7 +71,7 @@ public class ServiceDAO {
 	            return null;
 	        }
 	    }
-	
+	  
 
 }
 
