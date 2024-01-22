@@ -10,5 +10,6 @@
    4. JavaScript
    5. JDBC
    6. Servlet
-## Licence
-   This project License Owned By Logeshkumar [License]("LICENSE")
+## License
+
+This project is licensed under the Apache License - see the [LICENSE](License) file for details.
