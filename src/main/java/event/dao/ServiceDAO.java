@@ -1,11 +1,13 @@
 package event.dao;
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
+import javax.persistence.Query;
 
 import event.dto.Service;
 
@@ -72,6 +74,15 @@ public class ServiceDAO {
 	        }
 	    }
 	  
-
+	    public List<Service> getAllService() {
+	    	Query q=em.createQuery("select s from Service s");
+	    	@SuppressWarnings("unchecked")
+			List<Service> service=q.getResultList();
+	    	if (service !=null) {
+				return service;
+			} else {
+                return null;
+			}
+	    }
 }
 

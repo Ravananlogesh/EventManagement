@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,33 +17,27 @@ public class ClientEvent {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int clientEventId;
-private String clientNoOfPeople;
+private int clientNoOfPeople;
 private LocalDate startDate;
 private int  clientEventNoOfDays;
 private String  clientEventLocation;										
 private double clientEventPrice;
-@ManyToOne(cascade = CascadeType.ALL)
+@ManyToOne
 private Client client;
-@OneToMany(cascade = CascadeType.ALL)
+@OneToMany(cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
 private List<ClientService> clientservice;
 private EvenType evenType;
-@Override
-public String toString() {
-	return "ClientEvent [clientEventId=" + clientEventId + ", clientNoOfPeople=" + clientNoOfPeople + ", startDate="
-			+ startDate + ", clientEventNoOfDays=" + clientEventNoOfDays + ", clientEventLocation="
-			+ clientEventLocation + ", clientEventPrice=" + clientEventPrice + ",  clientservice="
-			+ clientservice + ", evenType=" + evenType + "]";
-}
+
 public int getClientEventId() {
 	return clientEventId;
 }
 public void setClientEventId(int clientEventId) {
 	this.clientEventId = clientEventId;
 }
-public String getClientNoOfPeople() {
+public int getClientNoOfPeople() {
 	return clientNoOfPeople;
 }
-public void setClientNoOfPeople(String clientNoOfPeople) {
+public void setClientNoOfPeople(int clientNoOfPeople) {
 	this.clientNoOfPeople = clientNoOfPeople;
 }
 public LocalDate getStartDate() {
@@ -87,5 +82,11 @@ public EvenType getEvenType() {
 public void setEvenType(EvenType evenType) {
 	this.evenType = evenType;
 }
-
+@Override
+public String toString() {
+	return "ClientEvent [clientEventId=" + clientEventId + ", clientNoOfPeople=" + clientNoOfPeople + ", startDate="
+			+ startDate + ", clientEventNoOfDays=" + clientEventNoOfDays + ", clientEventLocation="
+			+ clientEventLocation + ", clientEventPrice=" + clientEventPrice +  ", Client=" + client+ ",  clientservice="
+			+ clientservice + ", evenType=" + evenType + "]";
+}
 }
