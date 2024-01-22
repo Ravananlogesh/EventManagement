@@ -11,4 +11,4 @@
    5. JDBC
    6. Servlet
 ## Licence
-   This project License Owned By Logeshkumar [Licence]("License")
+   This project License Owned By Logeshkumar [License]("LICENSE")
