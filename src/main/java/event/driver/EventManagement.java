@@ -347,5 +347,28 @@ public ClientEvent deleteClientEvent() {
          return null;
 	}
 }
-
+public ClientEvent  deleteClientService() {
+Client c=clientLogin();
+	
+	
+	if (c !=null) {
+		
+		
+		List<ClientEvent> clientevent=c.getEvents();
+		
+		for (ClientEvent clientEvent2 : clientevent) {
+			
+		     System.out.println(clientEvent2.getClientEventId()+"\t"+clientEvent2.getClientservice());  
+		}
+		System.out.print("Enter the Event Id : ");
+		int id=sc.nextInt();
+		ClientEvent ce=cedao.findClientEvent(id);
+		ce.setClientservice(null);
+		return cedao.updateClientEvent(ce, id);
+		
+}
+	else {
+		return null;
+	}
+}
 }
