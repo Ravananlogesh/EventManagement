@@ -10,6 +10,7 @@
    4. JavaScript
    5. JDBC
    6. Servlet
+   7. Golang 
 ## License
 
 This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
